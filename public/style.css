@@ -1,7 +1,10 @@
 body
 {
 	background-color: white;
-	padding-top: 44px;
+	padding: 44px 5px 0;
+}
+.container {
+	width: 1180px;
 }
 .alert-message.block-message.gheading
 {

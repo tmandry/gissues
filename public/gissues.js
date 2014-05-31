@@ -57,7 +57,7 @@ function createIssueElement(issueId) {
 		
 
 	var html = 
-		'<div data-id="' + issueId + '" class="span4 gnote">'
+		'<div data-id="' + issueId + '" class="span5 gnote">'
 			+ '<a href="' + issue.html_url + '">#' + issue.number.toString() + '</a>'
 			+ ' ' + issue.title
 			+ labels
