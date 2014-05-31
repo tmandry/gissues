@@ -18,12 +18,15 @@ body
 	margin-right: auto;
 	margin-top: 4px;
 	margin-bottom: 4px;
+	padding: 3px 5px;
+	font-size: 14px;
+	box-sizing: border-box;
 }
 .gissueList
 {
 	min-height: 600px;
 }
-.galert-message-content 
+.galert-message-content
 {
 	padding-left: 4px;
 }
@@ -47,7 +50,7 @@ body
 .gissueLabel
 {
 	display: inline-block;
-	margin-left: 2px;
+	margin-left: 3px;
 	font-size: 0.8em;
 	text-transform: none;
 	height: 1.4em;
