@@ -51,8 +51,11 @@ function createIssueElement(issueId) {
 			+ '</span>';
 	}
 
-	var assignee = issue.assignee && issue.assignee.login 
+	var assignee = issue.assignee && issue.assignee.login
 		? '<span class="label notice gissueLabel" style="color: black">@' + issue.assignee.login + '</span>'
+		: '';
+	var creator = issue.pull_request && issue.user && issue.user.login
+		? '<span class="label notice gissueLabel" style="color: black">@' + issue.user.login + '</span>'
 		: '';
 
 	var html =
@@ -61,6 +64,7 @@ function createIssueElement(issueId) {
 			+ ' ' + issue.title
 			+ labels
 			+ assignee
+			+ creator
 		+ '</div>';
 
 	var element = $(html);
@@ -68,6 +72,8 @@ function createIssueElement(issueId) {
 	var body = issue.body;
 	if (body.length > 256) body = body.substr(0,255) + "...";
 	element.find('a').attr('title', body);
+
+	if (issue.pull_request) element.addClass('pull-request');
 
 	return element;
 }

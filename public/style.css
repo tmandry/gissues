@@ -60,6 +60,7 @@ body
 	line-height: 15px;
 	padding: 0 3px;
 }
+.pull-request { font-weight: bold; }
 .gdescription
 {
 	text-align: justify;
