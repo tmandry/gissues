@@ -54,17 +54,22 @@ function createIssueElement(issueId) {
 	var assignee = issue.assignee && issue.assignee.login 
 		? '<span class="label notice gissueLabel" style="color: black">@' + issue.assignee.login + '</span>'
 		: '';
-		
 
-	var html = 
+	var html =
 		'<div data-id="' + issueId + '" class="span5 gnote">'
-			+ '<a href="' + issue.html_url + '">#' + issue.number.toString() + '</a>'
+			+ '<a href="' + issue.html_url + '" target="_blank">#' + issue.number.toString() + '</a>'
 			+ ' ' + issue.title
 			+ labels
 			+ assignee
 		+ '</div>';
-	
-	return $(html); 
+
+	var element = $(html);
+
+	var body = issue.body;
+	if (body.length > 256) body = body.substr(0,255) + "...";
+	element.find('a').attr('title', body);
+
+	return element;
 }
 
 function updateIssues(issuesToUpdate) {
