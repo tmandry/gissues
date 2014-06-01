@@ -63,6 +63,7 @@ function createIssueElement(issueId) {
 		'<div data-id="' + issueId + '" class="span5 gnote">'
 			+ '<a href="' + issue.html_url + '" target="_blank">#' + issue.number.toString() + '</a>'
 			+ ' ' + issue.title
+			+ '<br>'
 			+ labels
 			+ assignee
 			+ creator
