@@ -293,7 +293,8 @@ function onRepoSelected(repo, refresh) {
 		else {
 			issues = [];
 			loadedIssues = 0;
-			loadIssues(1);	
+			loadIssues(1);
+			$('#github-issues-link').attr('href', repo.html_url+'/issues').removeClass('hide');
 		}
 	}
 	else {
