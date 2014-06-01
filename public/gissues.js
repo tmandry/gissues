@@ -158,6 +158,7 @@ function onIssueMoved($currentIssue) {
 
 function populateWhiteboard() {
 	clearError();
+	$('.gnote').remove();
 
 	issues.sort(function (a, b) {
 		return a.gissue.order - b.gissue.order;
@@ -301,6 +302,12 @@ function onRepoSelected(repo, refresh) {
 		options.repo = undefined;
 		warningChooseRepo();
 	}
+}
+
+function refreshIssues() {
+	issues = [];
+	loadedIssues = 0;
+	loadIssues(1);
 }
 
 function onReposLoaded() {
