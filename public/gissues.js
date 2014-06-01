@@ -3,6 +3,7 @@ var issues;
 var loadedIssues;
 var minSentinel = { gissue: { order: 0 }};
 var maxSentinel = { gissue: { order: 100 }};
+var refresher;
 
 function getQueryParam(name) {
 	name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
@@ -200,17 +201,20 @@ function parseGissueStatus(issue) {
 	}
 
 	issue.gissue = {
-		order: maxSentinel.gissue.order, 
+		order: maxSentinel.gissue.order,
 		status: 'backlog'
 	};
 }
 
 function onIssuesLoaded() {
-	for (var issue in issues) {				
+	for (var issue in issues) {
 		parseGissueStatus(issues[issue]);
 	}
 
 	populateWhiteboard();
+
+	if (refresher) window.clearInterval(refresher);
+	refresher = window.setInterval(refreshIssues, 30000);
 }
 
 function loadIssues(page) {
